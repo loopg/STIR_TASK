@@ -296,8 +296,8 @@ def fetch_trending_topics():
 # collection = db['topics']
 
 # # Proxy setup (replace with your ProxyMesh credentials)
-# proxy_username = "lolu@123"
-# proxy_password = "500%Secure"
+# proxy_username = "*******"
+# proxy_password = "*******"
 # proxy_host = "us-ca.proxymesh.com:31280"
 # PROXY = f"{quote(proxy_username)}:{quote(proxy_password)}@{proxy_host}"  # Properly encode credentials
 
