@@ -1,6 +1,6 @@
 
 
-# -----------------Without Proxy------------------
+
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -71,7 +71,7 @@ def fetch_trending_topics():
     except Exception as e:
         print(f"Error: {e}")
     finally:
-        driver.quit()  # Ensure driver is properly closed
+        driver.quit()  
 
 
 # -------------------------------------------using selenium with proxy-1--------------------------------------------
@@ -95,7 +95,7 @@ def fetch_trending_topics():
 # # Proxy setup (replace with your ProxyMesh credentials)
 # PROXY = "username:password@us-ca.proxymesh.com:31280"  # Replace with actual ProxyMesh credentials
 # chrome_options = webdriver.ChromeOptions()
-# chrome_options.add_argument(f"--proxy-server=http://{PROXY}")  # Use the proxy server
+# chrome_options.add_argument(f"--proxy-server=http://{PROXY}")  
 
 # def fetch_trending_topics():
 #     # Use webdriver-manager to automatically download and manage the correct version of ChromeDriver
@@ -105,14 +105,14 @@ def fetch_trending_topics():
 #     try:
 #         driver.get("https://twitter.com/login")
         
-#         # Wait for the username field to appear
+#        
 #         username_field = WebDriverWait(driver, 20).until(
 #             EC.visibility_of_element_located((By.NAME, "session[username_or_email]"))
 #         )
 #         username_field.send_keys("your_username")  # Replace with your Twitter username
 #         username_field.send_keys(Keys.RETURN)
         
-#         # Wait for the password field to appear
+#         
 #         password_field = WebDriverWait(driver, 20).until(
 #             EC.visibility_of_element_located((By.NAME, "session[password]"))
 #         )
@@ -122,16 +122,14 @@ def fetch_trending_topics():
 #         # Wait for login to complete
 #         time.sleep(5)  # Wait for 5 seconds after login to allow page to load
 
-#         # Fetch trending topics
 #         trends = driver.find_elements(By.XPATH, "//span[contains(text(), 'Trending')]/../../..//span")[:5]
 #         trending_topics = [trend.text for trend in trends if trend.text.strip()]
 
-#         # Metadata
+
 #         unique_id = str(datetime.now().timestamp())
 #         ip_address = PROXY.split('@')[1].split(':')[0]  # Extract the IP address from Proxy string
 #         timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
-#         # Save to MongoDB
 #         record = {
 #             "_id": unique_id,
 #             "trend1": trending_topics[0],
@@ -168,11 +166,10 @@ def fetch_trending_topics():
 # import logging
 # from urllib.parse import quote
 
-# # Setup logging
+
 # logging.basicConfig(level=logging.INFO)
 # logger = logging.getLogger(__name__)
 
-# # MongoDB setup
 # client = MongoClient("mongodb://localhost:27017/")
 # db = client['trending_topics']
 # collection = db['topics']
@@ -183,11 +180,11 @@ def fetch_trending_topics():
 # proxy_host = "us-ca.proxymesh.com:31280"
 # PROXY = f"{quote(proxy_username)}:{quote(proxy_password)}@{proxy_host}"  # Properly encode credentials
 
-# # Selenium Chrome options
+
 # chrome_options = webdriver.ChromeOptions()
 # chrome_options.add_argument(f"--proxy-server=http://{PROXY}")  # Use ProxyMesh server
 
-# # User-Agent rotation to minimize detection
+
 # user_agents = [
 #     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
 #     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36",
@@ -234,12 +231,11 @@ def fetch_trending_topics():
 #         if not trending_topics:
 #             logger.warning("No trending topics found. The page structure might have changed.")
 
-#         # Metadata
+#        
 #         unique_id = str(datetime.now().timestamp())
 #         ip_address = PROXY.split('@')[1].split(':')[0]  # Extract IP address from Proxy string
 #         timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
-#         # Save to MongoDB
 #         record = {
 #             "_id": unique_id,
 #             "trend1": trending_topics[0] if len(trending_topics) > 0 else "N/A",
@@ -286,11 +282,11 @@ def fetch_trending_topics():
 # import time
 # from webdriver_manager.chrome import ChromeDriverManager
 
-# # Setup logging
+
 # logging.basicConfig(level=logging.INFO)
 # logger = logging.getLogger(__name__)
 
-# # MongoDB setup
+
 # client = MongoClient("mongodb://localhost:27017/")
 # db = client['trending_topics']
 # collection = db['topics']
@@ -301,11 +297,10 @@ def fetch_trending_topics():
 # proxy_host = "us-ca.proxymesh.com:31280"
 # PROXY = f"{quote(proxy_username)}:{quote(proxy_password)}@{proxy_host}"  # Properly encode credentials
 
-# # Selenium Chrome options
 # chrome_options = webdriver.ChromeOptions()
 # chrome_options.add_argument(f"--proxy-server=http://{PROXY}")  # Use ProxyMesh server
 
-# # User-Agent rotation to minimize detection
+# # user-agent rotation to minimize detection
 # user_agents = [
 #     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
 #     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36",
@@ -368,7 +363,7 @@ def fetch_trending_topics():
 #         ip_address = PROXY.split('@')[1].split(':')[0]  # Extract IP address from Proxy string
 #         timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
-#         # Save to MongoDB
+#         
 #         record = {
 #             "_id": unique_id,
 #             "trend1": trending_topics[0] if len(trending_topics) > 0 else "N/A",
@@ -389,7 +384,7 @@ def fetch_trending_topics():
 #         driver.quit()
 #         logger.info("Driver closed successfully.")
 
-# # Run the function
+
 # if __name__ == "__main__":
 #     fetch_trending_topics()
 
@@ -412,11 +407,11 @@ def fetch_trending_topics():
 # from webdriver_manager.chrome import ChromeDriverManager
 # import time
 
-# # Setup logging
+
 # logging.basicConfig(level=logging.INFO)
 # logger = logging.getLogger(__name__)
 
-# # MongoDB setup
+
 # client = MongoClient("mongodb://localhost:27017/")
 # db = client['trending_topics']
 # collection = db['topics']
@@ -427,11 +422,11 @@ def fetch_trending_topics():
 # proxy_address = "your_proxy_address:port"
 # PROXY = f"{quote(proxy_username)}:{quote(proxy_password)}@{proxy_address}"  # Encode credentials properly
 
-# # Selenium Chrome options
+
 # chrome_options = webdriver.ChromeOptions()
 # chrome_options.add_argument(f"--proxy-server=http://{PROXY}")  # Use the residential proxy
 
-# # User-Agent rotation to minimize detection
+# # user-agent rotation to minimize detection
 # user_agents = [
 #     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
 #     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36",
@@ -500,6 +495,5 @@ def fetch_trending_topics():
 #         driver.quit()
 #         logger.info("Driver closed successfully.")
 
-# # Run the function
 # if __name__ == "__main__":
 #     fetch_trending_topics()
